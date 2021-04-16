@@ -1,0 +1,14 @@
+* {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+html,
+body,
+#app {
+  background: #07038c;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
