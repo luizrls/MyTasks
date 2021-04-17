@@ -6,13 +6,13 @@
                 <img src="https://via.placeholder.com/50" alt="Logo">
             </div>
             <div class="appName">
-                <h5>name app</h5> 
+                <h5>Task App</h5> 
             </div>
         </div>
         
         <div class="searchBox">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" aria-describedby="inputGroup-sizing-default">
+            <form class="form-inline my-2 my-lg-0" v-on:submit.prevent>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" aria-describedby="inputGroup-sizing-default" v-model="valor" @change="buscar">
             </form>
         </div>
         <div class="userPic">
@@ -25,6 +25,16 @@
 <script>
 export default {
 name: 'Header',
+data:()=>{
+    return {
+        valor:''
+    }
+},
+methods: {
+    buscar(){
+        this.$emit('valorBuscado',this.valor)
+    }
+},
 }
 </script>
 

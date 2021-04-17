@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <Header />
-    <Main />
+    <Header @valorBuscado="getValorBuscado"/>
+    {{valor}}
+    <Main :valor="valor"/>
     <Footer />
   </div>
 </template>
@@ -18,7 +19,18 @@ export default {
     Header, 
     Main,
     Footer
-  }
+  },
+  data:()=>{
+    return{
+      valor: ''
+    }    
+  },
+  methods: {
+      getValorBuscado(valor){
+        console.log(valor)
+        this.valor = valor
+      }
+    }
 }
 </script>
 

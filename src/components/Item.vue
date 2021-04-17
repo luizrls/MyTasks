@@ -1,18 +1,16 @@
 <template>
 <div class='Item'>
     <div class="itemHeader">
-        <div class="itemTitulo">{{titulo}}</div>
+        <div class="itemTitulo">{{atividade.titulo}}</div>
         <div class="itemIdentificacao">
-            <div class="itemTipo">TIR</div>#
-            <div class="itemId"> XXXXXX</div>
+            <div class="itemTipo">{{atividade.tipo}}</div>#
+            <div class="itemId"> {{atividade.id}}</div>
         </div>
     </div>
     <div class="itemBody">
         <div>Descrição</div>
         <ul>
-            <li>Atividade 1</li>
-            <li>Atividade 2</li>
-            <li>Atividade 3</li>
+            <li v-for="(tarefa, index) in atividade.tarefas" :key="index">{{tarefa.nome}} - {{tarefa.status}}</li>
         </ul>
     </div>
 </div>
@@ -22,9 +20,15 @@
 export default {
 name: 'Item',
 props:{
-    titulo: String
+    atividade: Object
+    },
+data: ()=>{
+    return {
+
     }
 }
+}
+
 </script>
 
 <style scoped>

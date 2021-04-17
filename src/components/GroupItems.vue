@@ -3,13 +3,9 @@
     <div class="groupItemHeader">
         {{titulo}}
     </div>
-    <div class="groupItemBody">
-        <Item titulo="Item1" />
-        <Item titulo="Item2" />
-        <Item titulo="Item3" />
+    <div class="groupItemBody" v-for="(atividade, index) in atividades" :key="index">
+        <Item :atividade="atividade" />
     </div>
-
-
 </div>
 </template>
 
@@ -21,6 +17,7 @@ components:{
     Item
 },
 props:{
+    atividades: Array,
     titulo: String
 }
 

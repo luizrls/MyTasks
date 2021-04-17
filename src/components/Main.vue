@@ -1,26 +1,42 @@
 <template>
 <main>
   <!-- <slot /> -->
-  <GroupItems :titulo="titulo1" />
-  <GroupItems :titulo="titulo2" />
-  <GroupItems :titulo="titulo3" />
+  <GroupItems titulo="Doing" :atividades="getAtividadesDoing(valor)" />
+  <GroupItems titulo="Waiting" :atividades="getAtividadesWaiting(valor)" />
+  <GroupItems titulo="Done" :atividades="getAtividadesDone(valor)" />
 </main>
 </template>
 
 <script>
 import GroupItems from './GroupItems.vue'
+import {getAllTasks} from '@/service/taskService.js'
 export default {
 name: 'Main',
 components:{
     GroupItems
 },
-data: ()=> {
-    return {
-        titulo1: "Doing",
-        titulo2: "Waiting",
-        titulo3: "Done"
-    }
-}
+props:{
+  valor:String
+},
+// data: ()=> {
+//     return {
+//         valor: "1"
+//     }
+// },
+methods: {
+  getAtividadesDoing: (valor)=>{
+    console.log("getAtividadesDoing")
+    return getAllTasks("Doing", valor)
+  },
+  getAtividadesDone: (valor)=>{
+    console.log("getAtividadesDone")
+    return getAllTasks("Done", valor)
+  },
+  getAtividadesWaiting: (valor)=>{
+    console.log("getAtividadesWaiting")
+    return getAllTasks("Waiting", valor)
+  }
+},
 
 }
 </script>
